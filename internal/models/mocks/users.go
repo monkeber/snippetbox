@@ -11,6 +11,7 @@ func (m *UserModel) Insert(name, email, password string) error {
 	default:
 		return nil
 	}
+}
 
 func (m *UserModel) Exists(id int) (bool, error) {
 	switch id {
