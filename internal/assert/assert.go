@@ -13,6 +13,14 @@ func Equal[T comparable](t *testing.T, actual, expected T) {
 	}
 }
 
+func NilError(t *testing.T, actual error) {
+	t.Helper()
+
+	if actual != nil {
+		t.Errorf("got: %v; expected: nil", actual)
+	}
+}
+
 func StringContains(t *testing.T, actual, expectedSubstring string) {
 	t.Helper()
 
