@@ -1,8 +1,25 @@
 package mocks
 
-import "monkeber.com/internal/models"
+import (
+	"time"
+
+	"monkeber.com/internal/models"
+)
 
 type UserModel struct{}
+
+func (m *UserModel) Get(id int) (*models.User, error) {
+	if id == 1 {
+		return &models.User{
+			ID:      1,
+			Name:    "Alice Jones",
+			Email:   "alice@example.com",
+			Created: time.Now(),
+		}, nil
+	}
+
+	return &models.User{}, models.ErrNoRecord
+}
 
 func (m *UserModel) Insert(name, email, password string) error {
 	switch email {
