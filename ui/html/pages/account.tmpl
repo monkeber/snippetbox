@@ -1,0 +1,15 @@
+{{define "title"}}Your Account{{end}}
+
+{{define "main"}}
+{{with .User}}
+<div class="snippet">
+    <div class="metadata">
+        <strong>{{.Name}}</strong>
+        <span>#{{.Email}}</span>
+    </div>
+    <div class="metadata">
+        <time>Created: {{humanDate .Created}}</time>
+    </div>
+</div>
+{{end}}
+{{end}}
