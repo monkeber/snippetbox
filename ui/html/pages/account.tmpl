@@ -2,14 +2,19 @@
 
 {{define "main"}}
 {{with .User}}
-<div class="snippet">
-    <div class="metadata">
-        <strong>{{.Name}}</strong>
-        <span>#{{.Email}}</span>
-    </div>
-    <div class="metadata">
-        <time>Created: {{humanDate .Created}}</time>
-    </div>
-</div>
+<table>
+    <tr>
+        <td><strong>Name</strong></td>
+        <td>{{.Name}}</td>
+    </tr>
+    <tr>
+        <td><strong>Email</strong></td>
+        <td>{{.Email}}</td>
+    </tr>
+    <tr>
+        <td><strong>Joined</strong></td>
+        <td>{{humanDate .Created}}</td>
+    </tr>
+</table>
 {{end}}
 {{end}}
