@@ -41,15 +41,6 @@ func (app *application) isAuthenticated(r *http.Request) bool {
 	return isAuthenticated
 }
 
-func (app *application) getTriedToAccess(r *http.Request) string {
-	accessUrl, ok := r.Context().Value(triedToAccess).(string)
-	if !ok {
-		return ""
-	}
-
-	return accessUrl
-}
-
 func (app *application) serverError(w http.ResponseWriter, err error) {
 	trace := fmt.Sprintf("%s\n%s", err.Error(), debug.Stack())
 	app.errorLog.Output(2, trace)

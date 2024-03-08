@@ -3,4 +3,4 @@ package main
 type contextKey string
 
 const isAuthenticatedContextKey = contextKey("isAuthenticated")
-const triedToAccess = contextKey("triedToAccess")
+const triedToAccessContextKey = string("triedToAccess")

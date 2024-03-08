@@ -230,7 +230,7 @@ func (app *application) userLoginPost(w http.ResponseWriter, r *http.Request) {
 
 	app.sessionManager.Put(r.Context(), "authenticatedUserID", id)
 
-	triedToAccess := app.getTriedToAccess(r)
+	triedToAccess := app.sessionManager.PopString(r.Context(), triedToAccessContextKey)
 	if triedToAccess != "" {
 		http.Redirect(w, r, triedToAccess, http.StatusSeeOther)
 	} else {
